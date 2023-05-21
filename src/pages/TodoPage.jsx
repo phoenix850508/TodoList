@@ -97,12 +97,7 @@ const TodoPage = () => {
 
   const handleDelete = (id) => {
     setTodos((prevTodos) => {
-      return prevTodos.filter((todo) => {
-        if (id !== todo.id) {
-          return todo;
-        }
-        return;
-      });
+      return prevTodos.filter((todo) => id !== todo.id);
     });
   };
   return (
