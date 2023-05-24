@@ -10,10 +10,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { login } from 'api/auth';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
   const handleClick = async () => {
     if (username.length === 0 || password.length === 0) {
       return;
@@ -29,6 +32,7 @@ const LoginPage = () => {
         showConfirmButton: false,
         timer: 1000,
       });
+      navigate('/todos');
       return;
     }
     //登入失敗訊息
