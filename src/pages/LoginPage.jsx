@@ -9,6 +9,7 @@ import { AuthInput } from 'components';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { login } from 'api/auth';
+import Swal from 'sweetalert2';
 
 const LoginPage = () => {
   const [username, setUserName] = useState('');
@@ -20,7 +21,24 @@ const LoginPage = () => {
     const { success, authToken } = await login({ username, password });
     if (success) {
       localStorage.setItem('authToken', authToken);
+      //登入成功訊息
+      Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: '登入成功',
+        showConfirmButton: false,
+        timer: 1000,
+      });
+      return;
     }
+    //登入失敗訊息
+    Swal.fire({
+      position: 'top',
+      icon: 'error',
+      title: '登入失敗',
+      showConfirmButton: false,
+      timer: 1000,
+    });
   };
   return (
     <AuthContainer>
