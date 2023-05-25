@@ -3,7 +3,7 @@ import {
   AuthInputContainer,
   AuthButton,
   AuthLinkText,
-} from 'components/common/auth.styled';
+} from 'common/auth.styled';
 import { ACLogoIcon } from 'assets/images';
 import { AuthInput } from 'components';
 import { useState, useEffect } from 'react';
