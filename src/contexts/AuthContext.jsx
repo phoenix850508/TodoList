@@ -1,18 +1,19 @@
-import { createContext, useState, useEffect, useContext } from 'react';
-import { register, login, checkPermission } from '../api/.auth.js';
+import { login, register, checkPermission } from 'api/auth';
+import { createContext, useState, useEffect } from 'react';
 import * as jwt from 'jsonwebtoken';
 import { useLocation } from 'react-router-dom';
+import { useContext } from 'react';
 
 const defaultAuthContext = {
-  isAuthenticated: false, // 使用者是否登入的判斷依據，預設為 false，若取得後端的有效憑證，則切換為 true
-  currentMember: null, // 當前使用者相關資料，預設為 null，成功登入後就會有使用者資料
-  register: null, // 註冊方法
-  login: null, // 登入方法
-  logout: null, // 登入方法
+  isAuthenticated: false,
+  currentMember: null,
+  register: null,
+  login: null,
+  logout: null,
 };
 
 const AuthContext = createContext(defaultAuthContext);
-export const useAuth = () => useContext(AuthProvider);
+export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [payload, setPayload] = useState(null);
@@ -51,16 +52,17 @@ export const AuthProvider = ({ children }) => {
         register: async (data) => {
           const { success, authToken } = await register({
             username: data.username,
-            password: data.password,
             email: data.email,
+            password: data.password,
           });
           const tempPayload = jwt.decode(authToken);
           if (tempPayload) {
-            setIsAuthenticated(true);
             setPayload(tempPayload);
+            setIsAuthenticated(true);
+            localStorage.setItem('authToken', authToken);
           } else {
-            setIsAuthenticated(false);
             setPayload(null);
+            setIsAuthenticated(false);
           }
           return success;
         },

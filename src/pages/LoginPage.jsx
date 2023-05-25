@@ -6,12 +6,11 @@ import {
 } from 'common/auth.styled';
 import { ACLogoIcon } from 'assets/images';
 import { AuthInput } from 'components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { login, checkPermission } from 'api/auth';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 
 const LoginPage = () => {
   const [username, setUserName] = useState('');
