@@ -9,23 +9,26 @@
     "axios": "^0.27.2",
     "buffer": "^6.0.3",
     "clsx": "^1.2.1",
-    "i": "^0.3.7",
+    "crypto": "^1.0.1",
+    "crypto-browserify": "^3.12.0",
     "json-server": "^0.17.0",
     "jsonwebtoken": "^8.5.1",
-    "npm": "^9.6.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.1",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "^4.0.3",
     "sass": "^1.56.2",
+    "stream": "^0.0.2",
+    "stream-browserify": "^3.0.0",
     "styled-components": "^5.3.5",
     "sweetalert2": "^11.6.4",
+    "util": "^0.12.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "dev-server": "json-server --watch db.json --port 3001"
   },
@@ -46,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-app-rewired": "^2.2.1"
   }
 }
