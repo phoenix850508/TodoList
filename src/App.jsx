@@ -4,7 +4,7 @@ import { HomePage, LoginPage, SignUpPage, TodoPage } from 'pages';
 import { AuthProvider } from 'contexts/AuthContext';
 
 function App() {
-  const basename = process.env_PUBLIC_URL;
+  const basename = process.env.PUBLIC_URL;
   return (
     <div className="app">
       <BrowserRouter basename={basename}>
