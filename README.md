@@ -2,6 +2,11 @@
 
 TodoList is the first React todo I built based on the ACs material, using JSX syntax and follows the React coding style to create reusable UI components.
 
+You can view the site on https://phoenix850508.github.io/TodoList/login to view the todo list
+
+demo-username: demo123
+demo-password: demo123
+
 ## Install the project
 
 1. Ensure already installed `node.js`
