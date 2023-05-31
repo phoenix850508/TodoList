@@ -2,9 +2,9 @@ import './App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HomePage, LoginPage, SignUpPage, TodoPage } from 'pages';
 import { AuthProvider } from 'contexts/AuthContext';
+const basename = process.env.PUBLIC_URL;
 
 function App() {
-  const basename = process.env.PUBLIC_URL;
   return (
     <div className="app">
       <BrowserRouter basename={basename}>
