@@ -5,9 +5,10 @@ TodoList is the first React todo I built based on the ACs material, using JSX sy
 You can view the site on https://phoenix850508.github.io/TodoList/login to view the todo list
 
 demo-username: demo123
+
 demo-password: demo123
 
-## Install the project
+## Install the project to local host
 
 1. Ensure already installed `node.js`
 2. Clone the project
